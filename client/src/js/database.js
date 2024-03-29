@@ -22,6 +22,10 @@ export const putDb = async (content) => {
 
   const request = objStore.put(content);
 
+  if(!request){
+    return console.log(err, 'No data to PUT or internal server error.')
+  }
+
   console.log(request)
 };
 
