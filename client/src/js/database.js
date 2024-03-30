@@ -38,13 +38,14 @@ export const getDb = async () => {
   const objStore = transact.objectStore('jate');
 
   const request = objStore.getAll()
+
+  const result = await request;
   
-  if(!request){
+  if(!result){
     return console.log(err, 'No data to GET or internal server error.')
   }
 
-  return request
-  
+  return result[result.length - 1]?.content;
 };
 
 initdb();
